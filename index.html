@@ -17,32 +17,29 @@
       position: relative;
       background-image: url('./bizcard-back.png');
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       height: 60vh;
-      color: white;
-      text-align: center;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      padding: 0 20px;
+      align-items: center;
     }
 
-    header h1 {
+    .header-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    .header-overlay h1 {
       font-size: 2.8rem;
-      margin: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 8px;
+      margin-bottom: 10px;
     }
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 15px;
-      background-color: rgba(0, 0, 0, 0.4);
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 6px;
+    .header-overlay p {
+      font-size: 1.1rem;
+      margin: 0;
     }
 
     section {
@@ -104,8 +101,10 @@
 <body>
 
 <header>
-  <h1>MNG BizCard</h1>
-  <p>プライバシーを守る、完全オフラインの名刺管理アプリ</p>
+  <div class="header-overlay">
+    <h1>MNG BizCard</h1>
+    <p>プライバシーを守る、完全オフラインの名刺管理アプリ</p>
+  </div>
 </header>
 
 <section>
@@ -130,7 +129,7 @@
   </div>
 
   <div class="ko-fi">
-    <a href="https://ko-fi.com/yourusername" target="_blank">☕ Ko-fiで応援する</a>
+    <a href="https://ko-fi.com/mngbizcard" target="_blank">☕ Ko-fiで応援する</a>
   </div>
 </section>
 
