@@ -11,6 +11,32 @@
       margin: 0;
       background-color: #f8f9fb;
       color: #333;
+      padding-top: 36px; /* 言語バー分の余白 */
+    }
+
+    /* ===== 言語切り替えバー ===== */
+    .lang-header {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #e5e7eb;
+      text-align: right;
+      padding: 6px 16px;
+      font-size: 14px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    .lang-links a {
+      color: #1A237E;
+      text-decoration: none;
+      margin-left: 6px;
+    }
+
+    .lang-links a:hover {
+      text-decoration: underline;
     }
 
     header {
@@ -100,10 +126,17 @@
 </head>
 <body>
 
+<!-- 🌐 言語切り替えバー -->
+<div class="lang-header">
+  <div class="lang-links">
+    🌐 <strong>日本語</strong> | <a href="/en/" lang="en">English</a>
+  </div>
+</div>
+
 <header>
   <div class="header-overlay">
     <h1>MNG BizCard</h1>
-    <p>プライバシーを守る、完全オフラインの名刺管理アプリ<br>(25年11月下旬リリース予定)</p>
+    <p>プライバシーを守る、完全オフラインの名刺管理アプリ</p>
   </div>
 </header>
 
