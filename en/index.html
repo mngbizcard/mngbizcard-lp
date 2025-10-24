@@ -1,107 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MNG BizCard – Privacy-First Business Card Manager App</title>
-  <meta name="description" content="MNG BizCard is a privacy-first business card manager app. Works fully offline – no cloud, no tracking, no external servers.">
-  <link rel="alternate" hreflang="ja" href="https://www.mngbizcard.com/">
-  <link rel="alternate" hreflang="en" href="https://www.mngbizcard.com/en/">
-  <link rel="icon" href="../bizcard-icon_ver1.png" type="image/png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MNG BizCard - Privacy-First Business Card Manager</title>
+  <link rel="icon" href="../bizcard-icon_ver1.png" type="image/png" />
+  <meta name="description" content="MNG BizCard is a privacy-focused business card manager app. 100% offline, no cloud, no tracking. Your data stays safely on your device." />
 
   <style>
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #111827;
-      background: #ffffff;
       margin: 0;
-      padding: 0;
-      line-height: 1.7;
-      text-align: center;
+      background-color: #f8f9fb;
+      color: #333;
+      padding-top: 36px; /* for language bar */
     }
-    header {
-      background: #f9fafb;
-      padding: 40px 20px 20px;
-    }
-    h1 {
-      font-size: 32px;
-      color: #1A237E;
-      margin: 0 0 0.2em;
-    }
-    h2 {
-      font-size: 20px;
-      color: #374151;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 16px;
-      max-width: 720px;
-      margin: 12px auto;
-      line-height: 1.8;
-    }
-    img.icon {
-      width: 96px;
-      height: auto;
-      margin-bottom: 12px;
-    }
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    img.preview {
+
+    /* ===== Language Switch Bar ===== */
+    .lang-header {
       width: 100%;
-      max-width: 640px;
-      border-radius: 12px;
-      margin: 24px auto;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    ul {
-      text-align: left;
-      display: inline-block;
-      margin: 20px auto;
-    }
-    li { margin: 6px 0; }
-    footer {
-      border-top: 1px solid #E5E7EB;
-      margin-top: 40px;
-      padding: 20px 0;
-      color: #6B7280;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #e5e7eb;
+      text-align: right;
+      padding: 6px 16px;
       font-size: 14px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
     }
-    a { color: #1A237E; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .lang {
-      margin-top: 12px;
-      font-size: 15px;
+
+    .lang-links a {
+      color: #1A237E;
+      text-decoration: none;
+      margin-left: 6px;
+    }
+
+    .lang-links a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: relative;
+      background-image: url('../bizcard-back.png');
+      background-size: cover;
+      background-position: center top;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    .header-overlay h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .header-overlay p {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .feature h3 {
+      margin: 0 0 10px 0;
+      color: #0c2d48;
+    }
+
+    .ko-fi {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .ko-fi a {
+      background-color: #ff5f5f;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #ececec;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #555;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <img src="../bizcard-icon_ver1.png" alt="MNG BizCard icon" class="icon">
+
+<!-- 🌐 Language Switch Header -->
+<div class="lang-header">
+  <div class="lang-links">
+    🌐 <a href="/" lang="ja">日本語</a> | <strong>English</strong>
+  </div>
+</div>
+
+<header>
+  <div class="header-overlay">
     <h1>MNG BizCard</h1>
-    <h2>Privacy-First Business Card Manager App</h2>
-  </header>
+    <p>Privacy-first business card manager app – 100% offline</p>
+  </div>
+</header>
 
-  <main class="wrap">
-    <p><strong>MNG BizCard</strong> is a minimalist business card manager app designed for freelancers and professionals who value privacy.</p>
-    <p>All your data stays <strong>completely offline</strong> — no cloud servers, no external syncing, and no data sharing.</p>
+<section>
+  <h2>App Features</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>✅ 100% Offline</h3>
+      <p>No cloud sync, no data sharing – all information is stored securely on your device.</p>
+    </div>
+    <div class="feature">
+      <h3>✅ Accurate OCR</h3>
+      <p>Automatically recognize and organize card text using Google ML Kit.</p>
+    </div>
+    <div class="feature">
+      <h3>✅ Multi-language UI</h3>
+      <p>Supports Japanese, English, Chinese, Korean, and Hindi.</p>
+    </div>
+    <div class="feature">
+      <h3>✅ Free & Lightweight</h3>
+      <p>No subscription, no analytics – just a simple, secure, fast app.</p>
+    </div>
+  </div>
 
-    <img src="../bizcard-back.png" alt="MNG BizCard App Preview" class="preview">
-
-    <h3>Main Features</h3>
-    <ul>
-      <li>OCR text recognition (Google ML Kit)</li>
-      <li>Local data storage only (SQLite)</li>
-      <li>Contact categorization & search</li>
-      <li>CSV & vCard import/export</li>
-      <li>Biometric lock & optional encryption</li>
-      <li>Multi-language UI (JA / EN / ZH / ZH-TW / KO / HI)</li>
-    </ul>
-
-    <p>Light ads only. You can support development through <a href="https://ko-fi.com/yourid" target="_blank" rel="noopener">Ko-fi</a>.</p>
-  </main>
+  <div class="ko-fi">
+    <a href="https://ko-fi.com/mngbizcard" target="_blank">☕ Support on Ko-fi</a>
+  </div>
+</section>
 
   <footer>
     <p>&copy; 2025 MNG BizCard. All rights reserved.</p>
