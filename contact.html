@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | MNG BizCard</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #F9FAFB;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 640px;
+      margin: 60px auto;
+      padding: 32px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    h1 {
+      color: #1A237E;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 500;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+      height: 140px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #1A237E;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #303F9F;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>お問い合わせ</h1>
+    <form id="contact-form">
+      <label>お名前</label>
+      <input type="text" name="name" required>
+
+      <label>メールアドレス</label>
+      <input type="email" name="email" required>
+
+      <label>お問い合わせ内容</label>
+      <textarea name="message" required></textarea>
+
+      <button type="submit">送信する</button>
+    </form>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      result.textContent = "送信中です...";
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        result.textContent = "お問い合わせを送信しました。ありがとうございました！";
+        form.reset();
+      } else {
+        result.textContent = "送信に失敗しました。もう一度お試しください。";
+      }
+    });
+  </script>
+<br>
+  <footer>
+  <p>© 2025 MNG BizCard</p>
+  <div>
+    <a href="/privacy.html">プライバシーポリシー</a> |
+    <a href="/terms.html">利用規約</a> |
+    <a href="/tokushoho.html">特定商取引法に基づく表記</a> |
+    <a href="/contact.html">お問い合わせフォーム</a> |
+    <a href="/en/" lang="en">English</a> |
+  </div>
+</footer>
+  
+</body>
+</html>
